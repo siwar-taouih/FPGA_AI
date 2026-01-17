@@ -96,6 +96,38 @@ Tested with:
 2. Run [``uart_test_nn.py``](/src/python/uart_test_nn.py) with port as argument, e.g.: `python3 uart_test_nn.py -port /dev/ttyUSB1`
 3. The script sends a random test image from the dataset to the Pynq board over UART and outputs the corresponding label. Hopefully LED[0:3] lights up in the same binary number as the test image label.
 
+## 6) Display Meaningful Output on Monitor (Optional)
+
+For a more visual and informative display of neural network predictions, use the display system:
+
+### Terminal Display (Works Anywhere)
+```bash
+cd src/display
+python3 display_terminal.py
+```
+
+This shows:
+- Visual representation of the input image (10x10 pixels as ASCII art)
+- Predicted digit (0-9) with large display
+- Confidence percentage with color coding
+- Processing time in milliseconds and clock cycles
+- Confidence distribution bar chart for all 10 digits
+- Running statistics (accuracy, total processed)
+
+### Graphical Display (Requires GUI)
+```bash
+cd src/display
+python3 display_gui.py
+```
+
+Full graphical interface with:
+- Scaled input image visualization
+- Color-coded prediction results
+- Real-time confidence bars
+- Performance metrics
+
+See [``src/display/README.md``](/src/display/README.md) for complete documentation and [``docs/display_specification.md``](/docs/display_specification.md) for technical details.
+
 ![Alt text](https://github.com/nhma20/FPGA_AI/blob/main/pictures/nn_testing.jpg?raw=true)
 
 ![Alt text](https://github.com/nhma20/FPGA_AI/blob/main/pictures/nn_test_gif.gif?raw=true)
