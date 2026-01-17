@@ -26,6 +26,8 @@ def main():
 
 	dims = (10,10) # dimensions of images to train/test with
 
+	dataset_dir = '/Users/siwartaouih/FPGA_AI/MNIST_Dataset_JPG'
+
 	for j in range(2): # train and test	
 		for i in range(10): # 0 to 9
 			if j == 0:
