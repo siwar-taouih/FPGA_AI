@@ -32,7 +32,7 @@ To run C synthesis, you need Xilinx Vitis HLS installed. Use the provided TCL sc
 vitis_hls run_hls.tcl
 ```
 
-Or run interactively:
+Or run interactively on AMD
 
 ```bash
 vitis_hls
@@ -72,11 +72,6 @@ After running synthesis, check the reports in `nn_inference_hls/solution1/syn/re
    - BRAM: ~10-20 (for storing 100x32 + 32x16 + 16x10 weights)
    - LUT: ~5000-15000 (control logic, activation functions)
    - FF: ~3000-8000 (pipeline registers)
-
-3. **Performance Metrics:**
-   - Latency: Number of clock cycles for one inference
-   - Throughput: Inferences per second
-   - Clock: Achieved frequency (should meet 125MHz target)
 
 **Generated RTL Files:**
 
