@@ -37,6 +37,8 @@ entity nn_ctrl is
             led_ctrl2: out std_logic;
             led_ctrl3: out std_logic;
             led_ctrl4: out std_logic;
+            led_ctrl5: out std_logic;
+            led_ctrl6: out std_logic;
             
             nn_res_in: in  std_logic_vector(31 downto 0)
            
@@ -50,8 +52,10 @@ architecture Behavioral of nn_ctrl is
     signal s_led_ctrl2  :   std_logic := '0';  
     signal s_led_ctrl3  :   std_logic := '0';
     signal s_led_ctrl4  :   std_logic := '0';
+    signal s_led_ctrl5  :   std_logic := '0';
+    signal s_led_ctrl6  :   std_logic := '0';
     
-    signal led_ctrl     :   std_logic_vector(3 downto 0);
+    signal led_ctrl     :   std_logic_vector(5 downto 0);
     
     signal pred         :   integer := 0;
     
@@ -82,19 +86,19 @@ begin
     pred <= to_integer(signed(nn_res_in));
 
     with pred select led_ctrl <=
-        "0001" when 1,
-        "0010" when 2,
-        "0011" when 3,
-        "0100" when 4,
-        "0101" when 5,
-        "0110" when 6,
-        "0111" when 7,
-        "1000" when 8,
-        "1001" when 9,
-        "1010" when 0,
-        "1110" when -1,
-        "1111" when 15,
-        "0000" when others;
+        "000001" when 1,
+        "000010" when 2,
+        "000011" when 3,
+        "000100" when 4,
+        "000101" when 5,
+        "000110" when 6,
+        "000111" when 7,
+        "001000" when 8,
+        "001001" when 9,
+        "001010" when 0,
+        "111110" when -1,
+        "111111" when 15,
+        "000000" when others;
         
 
     ap_start <= start_signal;
@@ -105,5 +109,7 @@ begin
     led_ctrl2 <= led_ctrl(1);
     led_ctrl3 <= led_ctrl(2);
     led_ctrl4 <= led_ctrl(3);
+    led_ctrl5 <= led_ctrl(4);
+    led_ctrl6 <= led_ctrl(5);
     
 end Behavioral;

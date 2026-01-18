@@ -105,6 +105,7 @@ For a more visual and informative display of neural network predictions, use the
 cd src/display
 python3 display_terminal.py
 ```
+This show an image 
 
 This shows:
 - Visual representation of the input image (10x10 pixels as ASCII art)
